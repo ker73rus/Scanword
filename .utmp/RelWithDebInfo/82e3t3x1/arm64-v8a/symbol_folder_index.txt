@@ -1,0 +1,1 @@
+C:\Users\pyata\Scanword\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\82e3t3x1\obj\arm64-v8a
