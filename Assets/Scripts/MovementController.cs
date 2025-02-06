@@ -10,12 +10,13 @@ public class MovementController : MonoBehaviour
     Vector2 f0start;
 
     Vector2 f1start;
+    private Vector3 dragOrigin;
     // 1,8:4
     // За 1 size лимит изменяется на (0,45, 1)
-    private float CameraYLimitUp = 1.6f;
-    private float CameraYLimitDown = -9.2f; // -5,2 при 7
-    private float CameraXLimitRight = 5.65f; // 3,85 при 7 
-    private float CameraXLimitLeft = -6.3f;
+    public float CameraYLimitUp = 1.6f;
+    public float CameraYLimitDown = -9.2f; // -5,2 при 7
+    public float CameraXLimitRight = 5.65f; // 3,85 при 7 
+    public float CameraXLimitLeft = -6.3f;
     Camera camera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +28,31 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0)) { 
+            dragOrigin = camera.ScreenToWorldPoint(Input.mousePosition);
+        }
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 delta = dragOrigin - camera.ScreenToWorldPoint(Input.mousePosition);
+            if (delta.x < 0 && transform.position.x >= CameraXLimitLeft + 0.45f * (Mathf.RoundToInt(camera.orthographicSize) - 3))
+            {
+                transform.position += new Vector3(delta.x, 0) * Time.deltaTime * speed;
+            }
+            else if (delta.x > 0 && transform.position.x <= CameraXLimitRight - 0.45f * (Mathf.RoundToInt(camera.orthographicSize) - 3))
+            {
+                transform.position += new Vector3(delta.x, 0) * Time.deltaTime * speed;
+            }
+            if (delta.y < 0 && transform.position.y >= CameraYLimitDown + 0.75f * (Mathf.RoundToInt(camera.orthographicSize) - 3))
+            {
+                transform.position += new Vector3(0, delta.y) * Time.deltaTime * speed;
+            }
+            else if (delta.y > 0 && transform.position.y <= CameraYLimitUp - (Mathf.RoundToInt(camera.orthographicSize) - 3))
+            {
+                transform.position += new Vector3(0, delta.y) * Time.deltaTime * speed;
+            }
+        }
+
+
         if (Input.touchCount > 0)
         {
 
@@ -62,7 +88,7 @@ public class MovementController : MonoBehaviour
             {
                 transform.position += new Vector3(delta.x, 0) * Time.deltaTime * speed;
             }
-            if (delta.y < 0 && transform.position.y >= CameraYLimitDown + (Mathf.RoundToInt(camera.orthographicSize) - 3))
+            if (delta.y < 0 && transform.position.y >= CameraYLimitDown + 0.75f * (Mathf.RoundToInt(camera.orthographicSize) - 3))
             {
                 transform.position += new Vector3(0, delta.y) * Time.deltaTime * speed;
             }
@@ -75,7 +101,15 @@ public class MovementController : MonoBehaviour
         }
         if (Input.mouseScrollDelta != Vector2.zero)
         {
-            GetComponent<Camera>().orthographicSize += Input.mouseScrollDelta.y;
+            float y = -Input.mouseScrollDelta.y;
+            if (y < 0 && camera.orthographicSize +  y >= 3)
+                camera.orthographicSize += y;
+            else if( y< 0) camera.orthographicSize = 3;
+            if (y > 0 && camera.orthographicSize + y <= 7)
+            {
+                camera.orthographicSize +=y;
+            }
+            else if(y> 0) { camera.orthographicSize = 7; }
         }
         if (Input.touchCount < 2)
         {

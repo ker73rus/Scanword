@@ -11,14 +11,13 @@ public class Importer : MonoBehaviour
 {
     XmlDocument xDoc;
     TextAsset xTextAsset;
-    string path = Application.dataPath + "/";
+    string path = "";
     public Level LoadLevel(TextAsset textAsset)
     {
         try
         { 
             XmlDocument xmlDoc = new XmlDocument();
             xTextAsset = textAsset;
-            print(path +textAsset.name + ".xml");
             if (!File.Exists(path + textAsset.name + ".xml")) {
                 xmlDoc.LoadXml(textAsset.text);
             }
@@ -41,6 +40,7 @@ public class Importer : MonoBehaviour
                                 int width = int.Parse(xnode.Attributes[0].Value);
                                 int height = int.Parse(xnode.Attributes[1].Value);
                                 reult = new Level(width, height);
+                                reult.name = textAsset.name;
                                 foreach (XmlNode xCell in xnode.ChildNodes)
                                 {
                                     if (xCell.Name != "cell")
@@ -49,8 +49,13 @@ public class Importer : MonoBehaviour
                                     cell.position = (int.Parse(xCell.Attributes[0].Value) - 1, int.Parse(xCell.Attributes[1].Value) - 1);
                                     if (xCell.Attributes[2].Value == "clue")
                                     {
-                                        cell.text = xCell.LastChild.InnerText.Replace("-\\n","").Replace("\\n", " ");
-                                        cell.status = CellStatus.Quest;
+                                        cell.text = xCell.LastChild.InnerText;
+                                        if(xCell.Attributes.Count > 4 && xCell.Attributes[4].Name == "status")
+                                        {
+                                            cell.status = CellStatus.Complited;
+                                        }
+                                        else cell.status = CellStatus.Quest;
+                                        cell.bar = Bar.None;
                                         reult.words.Add(new Word(id: int.Parse(xCell.LastChild.Attributes[0].Value), cell.text, (int.Parse(xCell.Attributes[0].Value) -1, int.Parse(xCell.Attributes[1].Value) - 1)));
                                         reult.words.Find(word => word.id.ToString() == xCell.LastChild.Attributes[0].Value).Text = cell.text;
                                     }
@@ -58,16 +63,36 @@ public class Importer : MonoBehaviour
                                     {
                                         cell.status = CellStatus.Idle;
                                         cell.text = "";
-                                        if(xCell.Attributes[2].Name == "solution")
+                                        if (xCell.Attributes[2].Name == "solution")
                                         {
                                             cell.solution = xCell.Attributes[2].Value;
-                                            if(xCell.Attributes.Count > 3 && xCell.Attributes[3].Value == "Complited")
+                                            cell.bar = Bar.None;
+                                            if (xCell.Attributes.Count > 3 && xCell.Attributes[3].Value == "Complited")
                                             {
                                                 cell.status = CellStatus.Complited;
                                                 cell.text = cell.solution;
                                             }
                                         }
-                                        else cell.solution = xCell.Attributes[3].Value;
+                                        else { cell.solution = xCell.Attributes[3].Value;
+                                            string bar = xCell.Attributes[2].Name;
+                                            bar = bar.Substring(0, bar.IndexOf("-"));
+                                            switch (bar)
+                                            {
+                                                case "left":
+                                                    cell.bar = Bar.Left; break;
+                                                case "right":
+                                                    cell.bar = Bar.Right; break;
+                                                case "top":
+                                                    cell.bar = Bar.Top; break;
+                                                case "bottom":
+                                                    cell.bar = Bar.Bottom; break;
+                                            }
+                                            if (xCell.Attributes.Count > 4 && xCell.Attributes[4].Value == "Complited")
+                                            {
+                                                cell.status = CellStatus.Complited;
+                                                cell.text = cell.solution;
+                                            }
+                                        }
                                         if (xCell.HasChildNodes && xCell.LastChild.Name == "arrow")
                                         {
                                             switch (xCell.LastChild.Attributes[0].Value)
@@ -154,6 +179,9 @@ public class Importer : MonoBehaviour
                                    solution += reult.cells[pos.Item1, pos.Item2].solution;
                                 }
                                 word.AddSolution(solution);
+                                if (xnode.Attributes.Count > 3 && xnode.Attributes[3].Name == "image") {
+                                    word.image = true;
+                                }
 
                             }
                         }
@@ -192,5 +220,9 @@ public class Importer : MonoBehaviour
             }
         }
         xDoc.Save(path + xTextAsset.name + ".xml");
+    }
+    private void Start()
+    {
+        path = Application.temporaryCachePath + "/";
     }
 }

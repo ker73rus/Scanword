@@ -24,10 +24,19 @@ public enum Arrow
     LeftToBottom = 11,
     RightToBottom = 12,
 }
+public enum Bar
+{
+    None = 4,
+    Left = 0,
+    Right = 1,
+    Top = 2,
+    Bottom = 3,
+}
 public class Cell
 {
     public Arrow arrow;
     public CellStatus status;
+    public Bar bar;
     public (int,int) position;
     public string text;
     public string solution;

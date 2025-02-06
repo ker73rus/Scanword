@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class CameraCanvas : MonoBehaviour
 {
@@ -13,12 +14,16 @@ public class CameraCanvas : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI quest;
     [SerializeField]
-    TextMeshProUGUI answer;
+    List<GameObject> answer;
     string rightLetters = "";
     [SerializeField]
     Main main;
     List<Cell> cellList;
     Word curword;
+    [SerializeField]
+    GameObject answerLetter;
+    [SerializeField]
+    GameObject keyboard;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,84 +43,107 @@ public class CameraCanvas : MonoBehaviour
     {
         curword = word;
         cellList = cells;
-        answer.text = "";
         rightLetters = "";
-        quest.text = word.Text;
+        quest.text = word.image ? "Что это?" : word.Text.Replace("-\\n", "").Replace("\\n", " ");
+        answer.ForEach(letter => Destroy(letter));
+        answer.Clear();
         if(word.alphabet.Length != 16)
         {
             print("pupupu");
         }
-        foreach (var cell in cells) {
-            answer.text = cell.status == CellStatus.Complited ? answer.text + cell.text : answer.text + "_";
-            rightLetters += cell.solution;
+
+        for( int i = 0; i < cells.Count; i++){
+            answer.Add(Instantiate(answerLetter, keyboard.transform));
+            RectTransform rect = keyboard.GetComponent<RectTransform>();
+            RectTransform letter = answer[i].GetComponent<RectTransform>();
+            print(letter.sizeDelta);
+            letter.sizeDelta = Vector2.one * ((rect.rect.width - 5 * cells.Count)/cells.Count) ;
+            letter.localPosition = new Vector2(- rect.rect.width/2 +letter.rect.width/2 + (letter.rect.width + 5) * i, 0);
+            answer[i].GetComponentInChildren<TextMeshProUGUI>().text = cells[i].status == CellStatus.Complited ? cells[i].text : "_";
+            rightLetters += cells[i].solution;
         }
         for(int i = 0; i < 16; i++)
         {
-            GameObject button = buttons[i].gameObject;
-            if (!button.activeSelf) button.SetActive(true);
+            if (!buttons[i].interactable) buttons[i].interactable = true;
             buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = word.alphabet[i].ToString();
-            if (rightLetters.Contains(word.alphabet[i]))
+            string output = word.alphabet[i].ToString().Clone() as string;
+            Button but = buttons[i];
+            but.onClick.RemoveAllListeners();
+            but.onClick.AddListener( () => { ButtonOff(but); OnClick(output); });
+
+        }
+        cellList
+            .FindAll(cell => cell.status == CellStatus.Complited)
+            .ForEach(cell =>
+               ButtonOff(
+                   buttons.ToList().Find(a => a.interactable && a.GetComponentInChildren<TextMeshProUGUI>().text == cell.text)
+               )
+            );
+    }
+
+
+    void ButtonOff(Button but)
+    {
+        //but.interactable = false;
+    }
+
+    public void OnClick(string text)
+    {
+        GameObject letter = answer.Find(_ => _.GetComponentInChildren<TextMeshProUGUI>().text == "_");
+        if (letter != null) {
+            letter.GetComponentInChildren<TextMeshProUGUI>().text = text;
+            letter.GetComponent<Button>().onClick.AddListener(() => RemoveLetter(letter));
+            if(answer.Find(_ => _.GetComponentInChildren<TextMeshProUGUI>().text == "_") == null)
             {
-                if ((from c in cellList where c.status == CellStatus.Complited select c.text).Contains(word.alphabet[i].ToString())) {
-                    if (rightLetters.Count(_ => _ == word.alphabet[i]) == 1)
-                    button.SetActive(false);
-                }
-                string output = word.alphabet[i].ToString().Clone() as string;
-                buttons[i].onClick.RemoveAllListeners();
-                buttons[i].onClick.AddListener(() => { RightButton(output); ButtonOff(button); });
-            }
-            else
-            {
-                buttons[i].onClick.RemoveAllListeners();
-                buttons[i].onClick.AddListener(WrongButton);
+                CheckAnswer();
             }
         }
-
+        
     }
-
-    public void WrongButton()
+    public void RemoveLetter(GameObject letter)
     {
-
-    }
-
-    public void ButtonOff(GameObject gameObject)
-    {
-        gameObject.SetActive(false);
-    }
-
-
-    public void RightButton(string text)
-    {
-        if(rightLetters.Count((_) => _.ToString() == text) > 1)
+        foreach (var item in buttons)
         {
-            char[] chars = answer.text.ToCharArray();
-            List<int> ind = rightLetters.AllIndexesOf(text).ToList();
-            foreach(int i in ind)
+            if(item.GetComponentInChildren<TextMeshProUGUI>().text == letter.GetComponentInChildren<TextMeshProUGUI>().text)
             {
-                chars[i] = text.ToCharArray()[0];
-                cellList[i].text = text;
-                cellList[i].status = CellStatus.Complited;
-                main.CellChanged(cellList[i]);
+                item.interactable = true;
+                letter.GetComponentInChildren<TextMeshProUGUI>().text = "_";
+                break;
             }
-            answer.text = chars.ArrayToString();
         }
-        else
-        {
-            char[] chars = answer.text.ToCharArray();
-            chars[rightLetters.IndexOf(text)] = text.ToCharArray()[0];
-            cellList[rightLetters.IndexOf(text)].text = text;
-            cellList[rightLetters.IndexOf(text)].status = CellStatus.Complited;
-            main.CellChanged(cellList[rightLetters.IndexOf(text)]);
-            answer.text = chars.ArrayToString();
-        }
+    }
 
-        if (!answer.text.Contains("_")) {
-            main.WordComlited(quest.text);
-            NextWord();
+    public void CheckAnswer()
+    {
+        string curAnswer = "";
+        answer.ForEach(ans => curAnswer += ans.GetComponentInChildren<TextMeshProUGUI>().text);
+        if (curAnswer == rightLetters)
+        {
+            main.WordComlited(curword.Text);
         }
     }
 
 
+    public void DeleteLetters()
+    {
+        foreach (var but in buttons) {
+            if (!rightLetters.Contains(but.GetComponentInChildren<TextMeshProUGUI>().text))
+            {
+                but.interactable = false;
+            }
+        }
+    }
+    public void OpenLetter()
+    {
+        foreach (var but in buttons)
+        {
+            if (rightLetters[answer.IndexOf(answer.Find(a => a.GetComponentInChildren<TextMeshProUGUI>().text == "_"))].ToString() == but.GetComponentInChildren<TextMeshProUGUI>().text)
+            {
+                but.onClick.Invoke();
+                return;
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {

@@ -29,11 +29,12 @@ public class Main : MonoBehaviour
     GameObject scroll;
     [SerializeField]
     GameObject lvlButton;
+    [SerializeField]
+    List<Sprite> wordImages = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        StartCoroutine(ShowKeyboard());
         var tt = Resources.LoadAll("Scanwords", typeof(TextAsset));
         foreach(var t in tt)
         {
@@ -43,6 +44,11 @@ public class Main : MonoBehaviour
         {
             textAssets.Reverse();
             FillLvlList();
+        }
+        object[] sprites = Resources.LoadAll("WordImages", typeof(Sprite));
+        foreach (var item in sprites)
+        {
+            wordImages.Add(item as Sprite);
         }
     }
     void FillLvlList()
@@ -55,6 +61,21 @@ public class Main : MonoBehaviour
             curButton.GetComponentInChildren<TextMeshProUGUI>().text = copy.name;
         }
 
+    }
+    public void ToLevelList()
+    {
+        panel.SetActive(false);
+        menu.SetActive(true);
+        curLevel = null;
+        previusWord = null;
+        if (cells != null)
+        {
+            foreach (var item in cells)
+            {
+                Destroy(item.gameObject);
+            }
+            cells = null;
+        }
     }
 
 
@@ -120,13 +141,13 @@ public class Main : MonoBehaviour
                 {
                     cells[i, j].cell.status = CellStatus.Complited;
                     cells[i, j].Outlined();
-                }
-                if (cells[i,j].cell.status == CellStatus.Complited)
-                {
-                    cells[i, j].Outlined();
+                    cells[i, j].cell.text = cells[i,j].cell.solution;
+                    cells[i, j].text.text = cells[i, j].cell.solution;
+                    CellChanged(cells[i, j].cell);
                 }
             }
         }
+        ToNext(word.id);
     }
 
     public void CellChanged(Cell cell)
@@ -195,7 +216,7 @@ public class Main : MonoBehaviour
     }
     public void ToPrev(int id) 
     { 
-        if(id - 1 < 0)
+        if(id - 1 <= 0)
         {
             int i = curLevel.words.Count;
             Word word = curLevel.words.Find(word => word.id == i);
@@ -218,6 +239,7 @@ public class Main : MonoBehaviour
                     i = curLevel.words.Count;
                 word = curLevel.words.Find(word => word.id == i);
             }
+            SelectQuest(word.Text);
         }
     }
 
@@ -225,6 +247,7 @@ public class Main : MonoBehaviour
 
     public void LoadLevel(TextAsset lvl)
     {
+        StartCoroutine(ShowKeyboard());
         menu.SetActive(false);
         curLevel = Importer.LoadLevel(lvl);
         cells = new CellController[curLevel.width,curLevel.height];
@@ -238,6 +261,19 @@ public class Main : MonoBehaviour
                 curCell.GetComponentInChildren<TextMeshProUGUI>().text = curLevel.cells[i,j].text;
                 curCell.GetComponent<CellController>().main = this;
                 cells[i, j] = curCell.GetComponent<CellController>();
+                if (curLevel.cells[i,j].status == CellStatus.Quest || (curLevel.cells[i, j].status == CellStatus.Complited && curLevel.cells[i,j].text.Count() > 2))
+                {
+                    Word word = curLevel.words.Find(word => word.position == curLevel.cells[i, j].position);
+                    Sprite sprite = wordImages.Find(wi => wi.name == curLevel.name + "_" + word.id);
+                    if (sprite != null)
+                    {
+                        curCell.GetComponent<CellController>().image.sprite = sprite;
+                        curCell.GetComponent<CellController>().backimage.gameObject.SetActive(true);
+                        word.image = true;
+                    }
+
+                }
+
             }
         }
     

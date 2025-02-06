@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<crosswordcompiler xmlns="http://crossword.info/xml/crosswordcompiler">
+  <rectangularpuzzle xmlns="http://crossword.info/xml/rectangularpuzzle" alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ">
+    <metadata>
+      <title>
+      </title>
+      <creator>
+      </creator>
+      <copyright>
+      </copyright>
+      <description>
+      </description>
+    </metadata>
+    <crossword>
+      <grid width="15" height="17">
+        <grid-look numbering-scheme="none" cell-size-in-pixels="34" clue-background-color="#D7E8FD" clue-square-divider-width="0.7" />
+        <cell x="1" y="1" type="clue" foreground-color="#000000">
+          <clue word="1">Слово в\nперенос-\nном\nсмысле</clue>
+        </cell>
+        <cell x="1" y="2" solution="М">
+          <arrow from="top" to="right" />
+        </cell>
+        <cell x="1" y="3" top-bar="true" solution="А">
+          <arrow from="bottom" to="right" />
+        </cell>
+        <cell x="1" y="4" type="clue" foreground-color="#000000">
+          <clue word="3">Газ для\nсварки</clue>
+        </cell>
+        <cell x="1" y="5" type="clue" foreground-color="#000000">
+          <clue word="5">Вещь,\nкоторую\nстащили</clue>
+        </cell>
+        <cell x="1" y="6" type="clue" foreground-color="#000000">
+          <clue word="7">Юриди-\nческая\nконтора</clue>
+        </cell>
+        <cell x="1" y="7" solution="Н">
+          <arrow from="top" to="right" />
+        </cell>
+        <cell x="1" y="8" top-bar="true" solution="Д">
+          <arrow from="bottom" to="right" />
+        </cell>
+        <cell x="1" y="9" type="clue" foreground-color="#000000">
+          <clue word="9">Княже-\nский\nратник</clue>
+        </cell>
+        <cell x="1" y="10" solution="К">
+          <arrow from="bottom" to="right" />
+        </cell>
+        <cell x="1" y="11" type="clue" foreground-color="#000000">
+          <clue word="11">Продукт в\nбатонах</clue>
+        </cell>
+        <cell x="1" y="12" solution="Н">
+          <arrow from="bottom" to="right" />
+        </cell>
+        <cell x="1" y="13" type="clue" foreground-color="#000000">
+          <clue word="13">Беспо-\nлезность</clue>
+        </cell>
+        <cell x="1" y="14" solution="П">
+          <arrow from="bottom" to="right" />
+        </cell>
+        <cell x="1" y="15" type="clue" foreground-color="#000000">
+          <clue word="15">Амплуа\nМаксима\nГалкина</clue>
+        </cell>
+        <cell x="1" y="16" solution="П">
+          <arrow from="bottom" to="right" />
+        </cell>
+        <cell x="1" y="17" type="clue" foreground-color="#000000">
+          <clue word="19">Священ-\nное со-\nчинение</clue>
+        </cell>
+        <cell x="2" y="1" solution="Р">
+          <arrow from="right" to="bottom" />
+        </cell>
+        <cell x="2" y="2" solution="Е" />
+        <cell x="2" y="3" solution="Ц" />
+        <cell x="2" y="4" solution="Е" />
+        <cell x="2" y="5" solution="П">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="2" y="6" solution="Т" />
+        <cell x="2" y="7" solution="О" />
+        <cell x="2" y="8" solution="Р" />
+        <cell x="2" y="9" type="clue" foreground-color="#000000">
+          <clue word="39">Облаче-\nние в\nплатье</clue>
+        </cell>
+        <cell x="2" y="10" solution="О">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="2" y="11" solution="Д" />
+        <cell x="2" y="12" solution="Е" />
+        <cell x="2" y="13" solution="В" />
+        <cell x="2" y="14" solution="А" />
+        <cell x="2" y="15" solution="Н" />
+        <cell x="2" y="16" solution="И" />
+        <cell x="2" y="17" solution="Е" />
+        <cell x="3" y="1" type="clue" foreground-color="#000000">
+          <clue word="23">Чувстви-\nтельный\nкончик\nнерва</clue>
+        </cell>
+        <cell x="3" y="2" solution="Т" />
+        <cell x="3" y="3" top-bar="true" solution="Е" />
+        <cell x="3" y="4" type="clue" foreground-color="#000000">
+          <clue word="33">Распо-\nрядок\nобряда</clue>
+        </cell>
+        <cell x="3" y="5" solution="Р">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="3" y="6" left-bar="true" solution="И" />
+        <cell x="3" y="7" solution="Т" />
+        <cell x="3" y="8" solution="У" />
+        <cell x="3" y="9" solution="А" />
+        <cell x="3" y="10" solution="Л" />
+        <cell x="3" y="11" type="clue" foreground-color="#000000">
+          <clue word="46">Икро-\nметный\nпроцесс</clue>
+        </cell>
+        <cell x="3" y="12" solution="Н">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="3" y="13" left-bar="true" solution="Е" />
+        <cell x="3" y="14" solution="Р" />
+        <cell x="3" y="15" left-bar="true" solution="Е" />
+        <cell x="3" y="16" solution="С" />
+        <cell x="3" y="17" left-bar="true" solution="Т" />
+        <cell x="4" y="1" solution="П">
+          <arrow from="right" to="bottom" />
+        </cell>
+        <cell x="4" y="2" solution="А" />
+        <cell x="4" y="3" solution="Т" />
+        <cell x="4" y="4" solution="Р" />
+        <cell x="4" y="5" solution="О" />
+        <cell x="4" y="6" left-bar="true" solution="Н" />
+        <cell x="4" y="7" solution="А" />
+        <cell x="4" y="8" solution="Ж" />
+        <cell x="4" y="9" type="clue" foreground-color="#000000">
+          <clue word="40">Сгорел за\nидею Ко-\nперника</clue>
+        </cell>
+        <cell x="4" y="10" solution="Б">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="4" y="11" solution="Р" />
+        <cell x="4" y="12" solution="У" />
+        <cell x="4" y="13" left-bar="true" solution="Н" />
+        <cell x="4" y="14" solution="О" />
+        <cell x="4" y="15" type="clue" foreground-color="#000000">
+          <clue word="17">Обстанов-\nка для\nамурных\nигр</clue>
+        </cell>
+        <cell x="4" y="16" solution="А" />
+        <cell x="4" y="17" type="clue" foreground-color="#000000">
+          <clue word="21">Внешний\nконтур</clue>
+        </cell>
+        <cell x="5" y="1" type="clue" foreground-color="#000000">
+          <clue word="24">Визиты\nврача к\nмалышу</clue>
+        </cell>
+        <cell x="5" y="2" solution="Ф" />
+        <cell x="5" y="3" top-bar="true" solution="И" />
+        <cell x="5" y="4" type="clue" foreground-color="#000000">
+          <clue word="34">Матрас,\nнабитый\nпухом</clue>
+        </cell>
+        <cell x="5" y="5" solution="П">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="5" y="6" left-bar="true" solution="Е" />
+        <cell x="5" y="7" solution="Р" />
+        <cell x="5" y="8" solution="И" />
+        <cell x="5" y="9" solution="Н" />
+        <cell x="5" y="10" solution="А" />
+        <cell x="5" y="11" type="clue" foreground-color="#000000">
+          <clue word="47">Юный\nскупец</clue>
+        </cell>
+        <cell x="5" y="12" solution="Ж">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="5" y="13" left-bar="true" solution="А" />
+        <cell x="5" y="14" solution="Д" />
+        <cell x="5" y="15" solution="И">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="5" y="16" solution="Н" />
+        <cell x="5" y="17" solution="А">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="6" y="1" solution="Б">
+          <arrow from="right" to="bottom" />
+        </cell>
+        <cell x="6" y="2" solution="О" />
+        <cell x="6" y="3" solution="Л" />
+        <cell x="6" y="4" solution="Г" />
+        <cell x="6" y="5" solution="А" />
+        <cell x="6" y="6" left-bar="true" solution="Р" />
+        <cell x="6" y="7" solution="И" />
+        <cell x="6" y="8" solution="Н" />
+        <cell x="6" y="9" type="clue" foreground-color="#000000">
+          <clue word="41">Китайские\nшахматы</clue>
+        </cell>
+        <cell x="6" y="10" solution="С">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="6" y="11" solution="Я" />
+        <cell x="6" y="12" solution="Н" />
+        <cell x="6" y="13" left-bar="true" solution="Ц" />
+        <cell x="6" y="14" solution="И" />
+        <cell x="6" y="15" top-bar="true" solution="Н" />
+        <cell x="6" y="16" top-bar="true" solution="И" />
+        <cell x="6" y="17" top-bar="true" solution="Б" />
+        <cell x="7" y="1" type="clue" foreground-color="#000000">
+          <clue word="25">Европеец</clue>
+        </cell>
+        <cell x="7" y="2" solution="Р" />
+        <cell x="7" y="3" top-bar="true" solution="Е" />
+        <cell x="7" y="4" type="clue" foreground-color="#000000">
+          <clue word="4">Аппарат,\nпринима-\nющий\nплатежи</clue>
+        </cell>
+        <cell x="7" y="5" solution="Ж" />
+        <cell x="7" y="6" type="clue" foreground-color="#000000">
+          <clue word="35">Дочь\nПетра I</clue>
+        </cell>
+        <cell x="7" y="7" solution="А">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="7" y="8" solution="Н" />
+        <cell x="7" y="9" solution="Н" />
+        <cell x="7" y="10" solution="А" />
+        <cell x="7" y="11" type="clue" foreground-color="#000000">
+          <clue word="48">Коктейль\nс желтком</clue>
+        </cell>
+        <cell x="7" y="12" solution="О">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="7" y="13" left-bar="true" solution="Й" />
+        <cell x="7" y="14" solution="С" />
+        <cell x="7" y="15" solution="Т" />
+        <cell x="7" y="16" solution="Е" />
+        <cell x="7" y="17" solution="Р" />
+        <cell x="8" y="1" solution="Ф">
+          <arrow from="right" to="bottom" />
+        </cell>
+        <cell x="8" y="2" solution="А" />
+        <cell x="8" y="3" solution="Н" />
+        <cell x="8" y="4" solution="Т">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="8" y="5" solution="А" />
+        <cell x="8" y="6" solution="С" />
+        <cell x="8" y="7" solution="Т" />
+        <cell x="8" y="8" top-bar="true" solution="И" />
+        <cell x="8" y="9" type="clue" foreground-color="#000000">
+          <clue word="10">Южный\nкустарник\nс цветами</clue>
+        </cell>
+        <cell x="8" y="10" type="clue" foreground-color="#000000">
+          <clue word="12">Товарный\nвагон с\nпечкой</clue>
+        </cell>
+        <cell x="8" y="11" solution="Т">
+          <arrow from="top" to="right" />
+        </cell>
+        <cell x="8" y="12" top-bar="true" solution="С" />
+        <cell x="8" y="13" type="clue" foreground-color="#000000">
+          <clue word="49">Шалаш\nиндейца</clue>
+        </cell>
+        <cell x="8" y="14" solution="Т">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="8" y="15" solution="И" />
+        <cell x="8" y="16" left-bar="true" solution="П" />
+        <cell x="8" y="17" solution="И" />
+        <cell x="9" y="1" type="clue" foreground-color="#000000">
+          <clue word="26">Писатель\nо при-\nшельцах</clue>
+        </cell>
+        <cell x="9" y="2" left-bar="true" solution="Е">
+          <arrow from="bottom" to="right" />
+        </cell>
+        <cell x="9" y="3" type="clue" foreground-color="#000000">
+          <clue word="2">Взрослая\nЖеня</clue>
+        </cell>
+        <cell x="9" y="4" solution="Е" />
+        <cell x="9" y="5" type="clue" foreground-color="#000000">
+          <clue word="6">Бездель-\nник</clue>
+        </cell>
+        <cell x="9" y="6" left-bar="true" solution="Ш">
+          <arrow from="top" to="right" />
+        </cell>
+        <cell x="9" y="7" type="clue" foreground-color="#000000">
+          <clue word="36">Мундир\nкирасира</clue>
+        </cell>
+        <cell x="9" y="8" solution="К">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="9" y="9" solution="О">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="9" y="10" solution="Л" />
+        <cell x="9" y="11" solution="Е" />
+        <cell x="9" y="12" solution="Т" />
+        <cell x="9" y="13" type="clue" foreground-color="#000000">
+          <clue word="14">Страна\nХеопса</clue>
+        </cell>
+        <cell x="9" y="14" type="clue" foreground-color="#000000">
+          <clue word="16">Зимние\nяблочки</clue>
+        </cell>
+        <cell x="9" y="15" solution="М" />
+        <cell x="9" y="16" type="clue" foreground-color="#000000">
+          <clue word="20">Разру-\nшитель\nзубов</clue>
+        </cell>
+        <cell x="9" y="17" solution="С" />
+        <cell x="10" y="1" solution="К">
+          <arrow from="right" to="bottom" />
+        </cell>
+        <cell x="10" y="2" solution="В" />
+        <cell x="10" y="3" solution="А" />
+        <cell x="10" y="4" solution="Р" />
+        <cell x="10" y="5" solution="Т" />
+        <cell x="10" y="6" solution="А" />
+        <cell x="10" y="7" solution="Л">
+          <arrow from="bottom" to="right" />
+        </cell>
+        <cell x="10" y="8" type="clue" foreground-color="#000000">
+          <clue word="8">Марка\nчая</clue>
+        </cell>
+        <cell x="10" y="9" solution="Л" />
+        <cell x="10" y="10" type="clue" foreground-color="#000000">
+          <clue word="42">Комик\nРишар</clue>
+        </cell>
+        <cell x="10" y="11" solution="П">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="10" y="12" solution="Ь" />
+        <cell x="10" y="13" solution="Е">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="10" y="14" solution="Р">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="10" y="15" type="clue" foreground-color="#000000">
+          <clue word="18">Фильм\n'Код да ...'</clue>
+        </cell>
+        <cell x="10" y="16" solution="К">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="10" y="17" type="clue" foreground-color="#000000">
+          <clue word="22">'Преда-\nтель' в\nдетском\nсаду</clue>
+        </cell>
+        <cell x="11" y="1" type="clue" foreground-color="#000000">
+          <clue word="27">Трехме-\nсячный\nпериод</clue>
+        </cell>
+        <cell x="11" y="2" solution="Г" />
+        <cell x="11" y="3" type="clue" foreground-color="#000000">
+          <clue word="30">Нитки -\nвышить\nкартину</clue>
+        </cell>
+        <cell x="11" y="4" solution="М">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="11" y="5" left-bar="true" solution="У" />
+        <cell x="11" y="6" solution="Л" />
+        <cell x="11" y="7" solution="И" />
+        <cell x="11" y="8" solution="Н" />
+        <cell x="11" y="9" solution="Е" />
+        <cell x="11" y="10" type="clue" foreground-color="#000000">
+          <clue word="43">Охот-\nничья\nсобака</clue>
+        </cell>
+        <cell x="11" y="11" solution="Л">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="11" y="12" left-bar="true" solution="Е" />
+        <cell x="11" y="13" solution="Г" />
+        <cell x="11" y="14" solution="А" />
+        <cell x="11" y="15" solution="В">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="11" y="16" solution="А" />
+        <cell x="11" y="17" solution="Я">
+          <arrow from="left" to="right" />
+        </cell>
+        <cell x="12" y="1" solution="М">
+          <arrow from="right" to="bottom" />
+        </cell>
+        <cell x="12" y="2" solution="Е" />
+        <cell x="12" y="3" solution="С" />
+        <cell x="12" y="4" solution="И" />
+        <cell x="12" y="5" left-bar="true" solution="В" />
+        <cell x="12" y="6" solution="О" />
+        <cell x="12" y="7" top-bar="true" solution="П" />
+        <cell x="12" y="8" type="clue" foreground-color="#000000">
+          <clue word="37">Написал\nроман\n'Азазель'</clue>
+        </cell>
+        <cell x="12" y="9" solution="А">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="12" y="10" solution="К" />
+        <cell x="12" y="11" solution="У" />
+        <cell x="12" y="12" left-bar="true" solution="Н" />
+        <cell x="12" y="13" solution="И" />
+        <cell x="12" y="14" solution="Н" />
+        <cell x="12" y="15" top-bar="true" solution="И" />
+        <cell x="12" y="16" top-bar="true" solution="Р" />
+        <cell x="12" y="17" top-bar="true" solution="Б" />
+        <cell x="13" y="1" type="clue" foreground-color="#000000">
+          <clue word="28">Каша из\nгрязи на\nдороге</clue>
+        </cell>
+        <cell x="13" y="2" solution="Н" />
+        <cell x="13" y="3" type="clue" foreground-color="#000000" status="Complited">
+          <clue word="31">Бог моря</clue>
+        </cell>
+        <cell x="13" y="4" solution="Н" status="Complited">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="13" y="5" left-bar="true" solution="Е" status="Complited" />
+        <cell x="13" y="6" solution="П" status="Complited" />
+        <cell x="13" y="7" solution="Т" status="Complited" />
+        <cell x="13" y="8" solution="У" status="Complited" />
+        <cell x="13" y="9" solution="Н" status="Complited" />
+        <cell x="13" y="10" type="clue" foreground-color="#000000">
+          <clue word="44">Типично\nзмеиные\nзвуки</clue>
+        </cell>
+        <cell x="13" y="11" solution="Ш">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="13" y="12" left-bar="true" solution="И" />
+        <cell x="13" y="13" solution="П" />
+        <cell x="13" y="14" solution="Е" />
+        <cell x="13" y="15" solution="Н" />
+        <cell x="13" y="16" solution="И" />
+        <cell x="13" y="17" solution="Е" />
+        <cell x="14" y="1" solution="П">
+          <arrow from="right" to="bottom" />
+        </cell>
+        <cell x="14" y="2" solution="И" />
+        <cell x="14" y="3" solution="Ж" />
+        <cell x="14" y="4" solution="А" />
+        <cell x="14" y="5" left-bar="true" solution="М" />
+        <cell x="14" y="6" solution="А" />
+        <cell x="14" y="7" top-bar="true" solution="О" />
+        <cell x="14" y="8" type="clue" foreground-color="#000000">
+          <clue word="38">Отпуск до\nи после\nроддома</clue>
+        </cell>
+        <cell x="14" y="9" solution="Д">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="14" y="10" solution="Е" />
+        <cell x="14" y="11" solution="К" />
+        <cell x="14" y="12" left-bar="true" solution="Р" />
+        <cell x="14" y="13" solution="Е" />
+        <cell x="14" y="14" solution="Т" />
+        <cell x="14" y="15" top-bar="true" solution="Ч" />
+        <cell x="14" y="16" top-bar="true" solution="Е" />
+        <cell x="14" y="17" top-bar="true" solution="Д" />
+        <cell x="15" y="1" type="clue" foreground-color="#000000">
+          <clue word="29">Кро-\nватная\nодежда</clue>
+        </cell>
+        <cell x="15" y="2" solution="Я" />
+        <cell x="15" y="3" type="clue" foreground-color="#000000" status="Complited">
+          <clue word="32">Самолет</clue>
+        </cell>
+        <cell x="15" y="4" solution="Л" status="Complited">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="15" y="5" left-bar="true" solution="А" status="Complited" />
+        <cell x="15" y="6" solution="Й" status="Complited" />
+        <cell x="15" y="7" solution="Н" status="Complited" />
+        <cell x="15" y="8" solution="Е" status="Complited" />
+        <cell x="15" y="9" solution="Р" status="Complited" />
+        <cell x="15" y="10" type="clue" foreground-color="#000000">
+          <clue word="45">Снимает-\nся за\nденьги</clue>
+        </cell>
+        <cell x="15" y="11" solution="А">
+          <arrow from="top" to="bottom" />
+        </cell>
+        <cell x="15" y="12" left-bar="true" solution="К" />
+        <cell x="15" y="13" solution="Т" />
+        <cell x="15" y="14" left-bar="true" solution="Р" />
+        <cell x="15" y="15" solution="И" />
+        <cell x="15" y="16" solution="С" />
+        <cell x="15" y="17" solution="А" />
+      </grid>
+      <word id="1" x="1-8" y="2" />
+      <word id="2" x="9-15" y="2" />
+      <word id="3" x="1-8" y="3" />
+      <word id="4" x="8-15" y="4" />
+      <word id="5" x="2-8" y="5" />
+      <word id="6" x="9-15" y="6" />
+      <word id="7" x="1-8" y="7" />
+      <word id="8" x="10-15" y="7" />
+      <word id="9" x="1-9" y="8" />
+      <word id="10" x="9-15" y="9" />
+      <word id="11" x="1-7" y="10" />
+      <word id="12" x="8-15" y="11" />
+      <word id="13" x="1-10" y="12" />
+      <word id="14" x="10-15" y="13" />
+      <word id="15" x="1-8" y="14" />
+      <word id="16" x="10-14" y="14" />
+      <word id="17" x="5-9" y="15" />
+      <word id="18" x="11-15" y="15" />
+      <word id="19" x="1-7" y="16" />
+      <word id="20" x="10-15" y="16" />
+      <word id="21" x="5-9" y="17" />
+      <word id="22" x="11-15" y="17" />
+      <word id="23" x="2" y="1-8" />
+      <word id="24" x="4" y="1-8" />
+      <word id="25" x="6" y="1-8" />
+      <word id="26" x="8" y="1-7" />
+      <word id="27" x="10" y="1-7" />
+      <word id="28" x="12" y="1-6" />
+      <word id="29" x="14" y="1-6" />
+      <word id="30" x="11" y="4-9" />
+      <word id="31" x="13" y="4-9" />
+      <word id="32" x="15" y="4-9" />
+      <word id="33" x="3" y="5-10" />
+      <word id="34" x="5" y="5-10" />
+      <word id="35" x="7" y="7-10" />
+      <word id="36" x="9" y="8-12" />
+      <word id="37" x="12" y="9-14" />
+      <word id="38" x="14" y="9-14" />
+      <word id="39" x="2" y="10-17" />
+      <word id="40" x="4" y="10-14" />
+      <word id="41" x="6" y="10-14" />
+      <word id="42" x="10" y="11-14" />
+      <word id="43" x="11" y="11-17" />
+      <word id="44" x="13" y="11-17" />
+      <word id="45" x="15" y="11-17" />
+      <word id="46" x="3" y="12-17" />
+      <word id="47" x="5" y="12-17" />
+      <word id="48" x="7" y="12-17" />
+      <word id="49" x="8" y="14-17" />
+    </crossword>
+  </rectangularpuzzle>
+</crosswordcompiler>

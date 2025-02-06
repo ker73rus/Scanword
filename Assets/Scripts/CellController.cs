@@ -6,10 +6,14 @@ public class CellController : MonoBehaviour
 {
     public Cell cell;
     Button Button;
-    [SerializeField]
+    public
     Image image;
+    public
+    Image backimage;
     public Main main;
-    TextMeshProUGUI text;
+    public TextMeshProUGUI text;
+    [SerializeField]
+    GameObject[] bars;
     void Start()
     { 
         text = GetComponentInChildren<TextMeshProUGUI>();
@@ -58,12 +62,16 @@ public class CellController : MonoBehaviour
                         break;
                 }
             }
+            if(cell.bar != Bar.None)
+            {
+                bars[(int)cell.bar].SetActive(true);
+            }
         }
         Outlined();
     }
     void Update()
     {
-        text.text = cell.text;
+
     }
     public void OnClick()
     {

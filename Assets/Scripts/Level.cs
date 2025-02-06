@@ -8,6 +8,7 @@ public class Level
     public int height { get; set; }
     public Cell[,] cells { get; set; }
     public List<Word> words { get; set; }
+    public string name;
  
     public Level()
     {

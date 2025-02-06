@@ -16,6 +16,7 @@ public class Word
     public string alphabet = "ÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞß";
     public string solution;
     public List<(int, int)> map;
+    public bool image = false;
     public Word() { 
         
     }
@@ -56,9 +57,10 @@ public class Word
 
     public void AddSolution(string solution)
     {
-        this.solution = solution ;
+        this.solution = solution;
         char[] chars = solution.Distinct().ToArray();
         solution = chars.ArrayToString();
+
         List<string> letters = new();
         foreach (var item in solution)
         {
@@ -69,7 +71,6 @@ public class Word
         {
             int i = UnityEngine.Random.Range(0, alphabet.Length);
             alphabet = alphabet.Replace(alphabet[i].ToString(), "");
-            //íåïğàâèëüíî ñîçäà¸òñÿ
         }
         alphabet += solution;
         letters =  (from a in alphabet.ToList() select a.ToString()).ToList();
